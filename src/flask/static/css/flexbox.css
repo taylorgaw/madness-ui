@@ -1,0 +1,32 @@
+.app {
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+}
+
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	text-decoration: none;
+}
+
+.schedule {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.game {
+	flex-grow: 1;
+}
+
+.item {
+	width: 20%;
+	align-self: center;
+    text-decoration: none;
+}
+
+.schedule {
+	order: 1;
+}
