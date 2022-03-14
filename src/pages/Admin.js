@@ -59,7 +59,7 @@ const Admin = ( { handleFinalized } ) => {
 
     const handleSyncSelections = async () => {
         const resp = await fetch(`http://localhost:5000/games/update`, {
-            method: 'GET',
+            method: 'PUT',
             headers: {
                 'Content-type': 'application/json'
             }

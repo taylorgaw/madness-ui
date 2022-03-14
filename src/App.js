@@ -12,135 +12,135 @@ import Admin from './pages/Admin';
 
 
 const newGameTemplate = [
-      {
-    "id": 1,
-          "user": "Player 1",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 2,
-          "user": "Player 2",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 3,
-          "user": "Player 3",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 4,
-          "user": "Player 4",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 5,
-          "user": "Player 5",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 6,
-          "user": "Player 6",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 7,
-          "user": "Player 7",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 8,
-          "user": "Player 8",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 9,
-          "user": "Player 9",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 10,
-          "user": "Player 10",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 11,
-          "user": "Player 11",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 12,
-          "user": "Player 12",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 13,
-          "user": "Player 13",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 14,
-          "user": "Player 14",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 15,
-          "user": "Player 15",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      },
-      {
-    "id": 16,
-          "user": "Player 16",
-          "north": "",
-          "south": "",
-          "midwest": "",
-          "west": ""
-      }
-  ]
+  {
+"id": 1,
+      "user": "Player 1",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 2,
+      "user": "Player 2",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 3,
+      "user": "Player 3",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 4,
+      "user": "Player 4",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 5,
+      "user": "Player 5",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 6,
+      "user": "Player 6",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 7,
+      "user": "Player 7",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 8,
+      "user": "Player 8",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 9,
+      "user": "Player 9",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 10,
+      "user": "Player 10",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 11,
+      "user": "Player 11",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 12,
+      "user": "Player 12",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 13,
+      "user": "Player 13",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 14,
+      "user": "Player 14",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 15,
+      "user": "Player 15",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  },
+  {
+"id": 16,
+      "user": "Player 16",
+      "east": "",
+      "south": "",
+      "midwest": "",
+      "west": ""
+  }
+]
 
 /*
 How to properly call Web APIS with useEffect

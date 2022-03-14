@@ -85,7 +85,7 @@ const GameBoard = ( ) => {
   }
 
   function handleClickShuffle() {
-    const north = shuffleArray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
+    const east = shuffleArray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
     const midwest = shuffleArray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
     const south = shuffleArray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
     const west = shuffleArray([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
@@ -99,12 +99,12 @@ const GameBoard = ( ) => {
 
     const newPicks = game.picks.map((pick) => {
       pick.user = shuffledNames.pop()
-      pick.north = "North " + north.pop().toString()
-      pick.midwest = "Midwest " + midwest.pop().toString()
-      pick.south = "South " + south.pop().toString()
-      pick.west = "West " + west.pop().toString()
-      return pick
-    })
+        pick.east = "East " + east.pop().toString()
+        pick.midwest = "Midwest " + midwest.pop().toString()
+        pick.south = "South " + south.pop().toString()
+        pick.west = "West " + west.pop().toString()
+        return pick
+      })
 
     gameCopy.picks = newPicks
     setGame(gameCopy)
@@ -113,7 +113,7 @@ const GameBoard = ( ) => {
   function handleClickClear() {
     const gameCopy = Object.assign({}, game)
     const newPicks = game.picks.map((pick) => {
-      pick.north = " "
+      pick.east = " "
       pick.midwest = " "
       pick.south = " "
       pick.west = " "
@@ -143,6 +143,15 @@ const GameBoard = ( ) => {
     })
   }
 
+  function handlePickChange(e, pickId, region) {
+    game.picks.map((pick) => {
+      if(pick.id === pickId){ 
+        pick[region] = e.target.value 
+      } 
+      return pick
+    })
+  }
+
   if (!game) {
     return <h3 className='title'>Loading...</h3>
   } else {
@@ -167,6 +176,7 @@ const GameBoard = ( ) => {
                   isNameEditMode={isNameEditMode} 
                   isRandomizeMode={isRandomizeMode}
                   onNameChange={handleNameChange}
+                  onPickChange={handlePickChange}
                 />
             </div>
           ) : (

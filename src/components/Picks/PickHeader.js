@@ -25,7 +25,7 @@ const PickHeader = ({
         {
           (!isNameEditMode && !isRandomizeMode) &&
           <div>
-            <button className='btn' onClick={onClickNameEdit}>Edit Names</button>
+            <button className='btn' onClick={onClickNameEdit}>Edit Names/Picks</button>
             <button className='btn' onClick={onClickRandomize}>Generate Picks</button>
           </div>
         }

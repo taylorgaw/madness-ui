@@ -1,6 +1,6 @@
 
 
-const PickListItem = ({ picks, isNameEditMode, isRandomizeMode, onNameChange }) => {
+const PickListItem = ({ picks, isNameEditMode, isRandomizeMode, onNameChange, onPickChange }) => {
     return (
         <div className='pick'>
             { 
@@ -11,10 +11,34 @@ const PickListItem = ({ picks, isNameEditMode, isRandomizeMode, onNameChange }) 
                 )
             }
             <ul>
-                <li>{ picks.north }</li>
-                <li>{ picks.midwest }</li>
-                <li>{ picks.south }</li>
-                <li>{ picks.west }</li>
+                <li>{
+                    isNameEditMode ? ( 
+                        <input className='form-input' type="text" defaultValue={picks.east} onChange={(e) => onPickChange(e, picks.id, 'east')} />
+                    ) : (
+                        <p>{ picks.east }</p>
+                    )
+                }</li>
+                <li>{ 
+                    isNameEditMode ? ( 
+                        <input className='form-input' type="text" defaultValue={picks.south} onChange={(e) => onPickChange(e, picks.id, 'south')} />
+                    ) : (
+                        <p>{ picks.south }</p>
+                    )
+                }</li>
+                <li>{ 
+                    isNameEditMode ? ( 
+                        <input className='form-input' type="text" defaultValue={picks.midwest} onChange={(e) => onPickChange(e, picks.id, 'midwest')} />
+                    ) : (
+                        <p>{ picks.midwest }</p>
+                    )
+                }</li>
+                <li>{ 
+                    isNameEditMode ? ( 
+                        <input className='form-input' type="text" defaultValue={picks.west} onChange={(e) => onPickChange(e, picks.id, 'west')} />
+                    ) : (
+                        <p>{ picks.west }</p>
+                    )
+                }</li>
             </ul>
         </div>
     );
