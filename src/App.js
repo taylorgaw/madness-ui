@@ -227,9 +227,9 @@ const App = () => {
             <Route path='/' exact element={(
               <>
                 {showAddGame && <AddGame onAdd={addGame} /> }
-                {games.length > 0 ? ( <GameList games={games} onDelete={handleDelete} /> ) : ('No Games To Show')}
+                {games.length > 0 ? ( <GameList games={games} onDelete={handleDelete} /> ) : ('Loading...')}
               </>
-            )} />
+            )} />~
             <Route path='/about' element={<About />} />
             <Route path='/gameboard/:id' element={<GameBoard />} />
             <Route path='/admin' element={<Admin />} />
