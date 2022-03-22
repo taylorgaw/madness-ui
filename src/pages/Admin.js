@@ -5,10 +5,12 @@ import Teams from '../components/Admin/Teams'
 const Admin = ( { handleFinalized } ) => {
     const [teams, setTeams] = useState({})
     const [isEditTeamMode, setEditTeamMode] = useState(false)
+    const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
+
 
     useEffect(() => {
         const fetchTeams = async () => {
-            const resp = await fetch(`http://localhost:5000/teams`, {
+            const resp = await fetch(`${madnessAPI}/teams`, {
               method: 'GET'
             })
         
@@ -28,7 +30,7 @@ const Admin = ( { handleFinalized } ) => {
         const body = {}
         body.year = '2022'
         body.regions = JSON.stringify(updates)
-        const resp = await fetch(`http://localhost:5000/teams`, {
+        const resp = await fetch(`${madnessAPI}/teams`, {
             method: 'PUT',
             body: JSON.stringify(body),
             headers: {
@@ -58,7 +60,7 @@ const Admin = ( { handleFinalized } ) => {
     }
 
     const handleSyncSelections = async () => {
-        const resp = await fetch(`http://localhost:5000/games/update`, {
+        const resp = await fetch(`${madnessAPI}/games/update`, {
             method: 'PUT',
             headers: {
                 'Content-type': 'application/json'

@@ -149,7 +149,7 @@ https://www.digitalocean.com/community/tutorials/how-to-call-web-apis-with-the-u
 const App = () => {
   const [showAddGame, setShowAddGame] = useState(false)
   const [games, setGames] = useState([  ])
-  const mySQLDomain = 'http://localhost:5000'
+  const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
 
   useEffect(() => {
     const getGames = async () => {
@@ -161,7 +161,7 @@ const App = () => {
 
   // Fetch games
   const fetchGames = async () => {
-    const resp = await fetch(`${mySQLDomain}/games`)
+    const resp = await fetch(`${madnessAPI}/games`)
     const data = await resp.json()
     if (!resp.ok) {
       throw new Error(`GET request to /games failed with error: ${data.message}, ${data.details}`);
@@ -173,7 +173,7 @@ const App = () => {
   const handleDelete = async (id) => {
     const password = window.prompt('Please enter the Admin password:')
     if(password === 'gabagool'){
-        const resp = await fetch(`${mySQLDomain}/games/${id}`, {
+        const resp = await fetch(`${madnessAPI}/games/${id}`, {
         method: 'DELETE'
       })
       const data = await resp.json()
@@ -193,7 +193,7 @@ const App = () => {
       "title": game,
       "picks": JSON.stringify(newGameTemplate)
     }
-    const resp = await fetch(`${mySQLDomain}/games`, {
+    const resp = await fetch(`${madnessAPI}/games`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'

@@ -8,10 +8,12 @@ const GameBoard = ( ) => {
   const [game, setGame] = useState()
   const [isNameEditMode, setNameEditMode] = useState(false)
   const [isRandomizeMode, setRandomizeMode] = useState(false)
+  const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
+
 
   useEffect(() => {
     const fetchGame = async (id) => {       
-        const resp = await fetch(`http://localhost:5000/games/${id}`, {
+        const resp = await fetch(`${madnessAPI}/games/${id}`, {
           method: 'GET'
         })
     
@@ -32,7 +34,7 @@ const GameBoard = ( ) => {
     delete gameCopy.created_at
     delete gameCopy.last_updated
     gameCopy.picks = JSON.stringify(gameCopy.picks)
-    const resp = await fetch(`http://localhost:5000/games/${id}`, {
+    const resp = await fetch(`${madnessAPI}/games/${id}`, {
       method: 'PUT',
       body: JSON.stringify(gameCopy),
       headers: {
