@@ -9,8 +9,8 @@ const GameBoard = ( ) => {
   const [losers, setLosers] = useState([])
   const [isNameEditMode, setNameEditMode] = useState(false)
   const [isRandomizeMode, setRandomizeMode] = useState(false)
-  //const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
-  const madnessAPI = 'http://localhost:5000'
+  const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
+  //const madnessAPI = 'http://localhost:5000'
 
 
   useEffect(() => {

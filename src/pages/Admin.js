@@ -6,8 +6,8 @@ const Admin = ( { handleFinalized } ) => {
     const [teams, setTeams] = useState({})
     const [losers, setLosers] = useState([])
     const [isEditTeamMode, setEditTeamMode] = useState(false)
-    //const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
-    const madnessAPI = 'http://localhost:5000'
+    const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
+    //const madnessAPI = 'http://localhost:5000'
 
 
     useEffect(() => {
