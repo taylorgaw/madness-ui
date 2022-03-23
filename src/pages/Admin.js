@@ -89,7 +89,6 @@ const Admin = ( { handleFinalized } ) => {
     }
 
     function handleDoubleClickTeam (value) {
-        console.log('Double Clicked', value)
         if(losers.includes(value)){
             const newLosers = losers.filter((team) => {
                 if(team !== value){
