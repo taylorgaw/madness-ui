@@ -1,6 +1,6 @@
 
 
-const PickListItem = ({ picks, isNameEditMode, isRandomizeMode, onNameChange, onPickChange }) => {
+const PickListItem = ({ picks, isNameEditMode, isRandomizeMode, onNameChange, onPickChange, losers }) => {
     return (
         <div className='pick'>
             { 
@@ -15,28 +15,28 @@ const PickListItem = ({ picks, isNameEditMode, isRandomizeMode, onNameChange, on
                     isNameEditMode ? ( 
                         <input className='form-input' type="text" defaultValue={picks.east} onChange={(e) => onPickChange(e, picks.id, 'east')} />
                     ) : (
-                        <p>{ picks.east }</p>
+                        <p style={ losers.includes(picks.east) ? {textDecoration: 'line-through', color: 'red'} : {} }>{ picks.east }</p>
                     )
                 }</li>
                 <li>{ 
                     isNameEditMode ? ( 
                         <input className='form-input' type="text" defaultValue={picks.south} onChange={(e) => onPickChange(e, picks.id, 'south')} />
                     ) : (
-                        <p>{ picks.south }</p>
+                        <p style={ losers.includes(picks.south) ? {textDecoration: 'line-through', color: 'red'} : {} }>{ picks.south }</p>
                     )
                 }</li>
                 <li>{ 
                     isNameEditMode ? ( 
                         <input className='form-input' type="text" defaultValue={picks.midwest} onChange={(e) => onPickChange(e, picks.id, 'midwest')} />
                     ) : (
-                        <p>{ picks.midwest }</p>
+                        <p style={ losers.includes(picks.midwest) ? {textDecoration: 'line-through', color: 'red'} : {} }>{ picks.midwest }</p>
                     )
                 }</li>
                 <li>{ 
                     isNameEditMode ? ( 
                         <input className='form-input' type="text" defaultValue={picks.west} onChange={(e) => onPickChange(e, picks.id, 'west')} />
                     ) : (
-                        <p>{ picks.west }</p>
+                        <p style={ losers.includes(picks.west) ? {textDecoration: 'line-through', color: 'red'} : {} }>{ picks.west }</p>
                     )
                 }</li>
             </ul>

@@ -4,8 +4,10 @@ import Teams from '../components/Admin/Teams'
 
 const Admin = ( { handleFinalized } ) => {
     const [teams, setTeams] = useState({})
+    const [losers, setLosers] = useState([])
     const [isEditTeamMode, setEditTeamMode] = useState(false)
-    const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
+    //const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
+    const madnessAPI = 'http://localhost:5000'
 
 
     useEffect(() => {
@@ -20,6 +22,7 @@ const Admin = ( { handleFinalized } ) => {
               throw new Error(`GET request to /teams failed with error: ${data.message}, ${data.details}`);
             } else {
                 setTeams(data['regions'])
+                setLosers(data['losers'])
             }
         }
         fetchTeams()
@@ -29,7 +32,8 @@ const Admin = ( { handleFinalized } ) => {
     const updateTeams = async (updates) => {
         const body = {}
         body.year = '2022'
-        body.regions = JSON.stringify(updates)
+        body.regions = JSON.stringify(updates.regions)
+        body.losers = updates.losers
         const resp = await fetch(`${madnessAPI}/teams`, {
             method: 'PUT',
             body: JSON.stringify(body),
@@ -43,6 +47,7 @@ const Admin = ( { handleFinalized } ) => {
         if(!resp.ok){
             throw new Error(`PUT request to /teams failed with error: ${data.message}, ${data.details}`);
         } else {
+            setLosers(data['losers'])
             setTeams(data['regions'])
         }
     }
@@ -56,7 +61,10 @@ const Admin = ( { handleFinalized } ) => {
     }
 
     function handleClickUpdateNames(){
-        updateTeams(teams)
+        const updates = {}
+        updates.regions = teams
+        updates.losers = losers
+        updateTeams(updates)
     }
 
     const handleSyncSelections = async () => {
@@ -80,6 +88,21 @@ const Admin = ( { handleFinalized } ) => {
         teams[`${region}`][`${id}`] = e.target.value
     }
 
+    function handleDoubleClickTeam (value) {
+        console.log('Double Clicked', value)
+        if(losers.includes(value)){
+            const newLosers = losers.filter((team) => {
+                if(team !== value){
+                    return team;
+                }
+            })
+            setLosers(newLosers)
+        }
+        else{
+            setLosers([...losers, value])
+        }
+    }
+
     return (
         <div className='container'>
             <h2>Admin Panel</h2>
@@ -96,7 +119,7 @@ const Admin = ( { handleFinalized } ) => {
             {Object.entries(teams).map(([key, value]) => {
                 return(<div key={key} className='team'>
                     <h3>{key}</h3>
-                    <Teams region={value} regionName={key} isEditTeamMode={isEditTeamMode} onTeamNameChange={handleTeamNameChange} />
+                    <Teams region={value} regionName={key} losers={losers} onDoubleClickTeam={handleDoubleClickTeam} isEditTeamMode={isEditTeamMode} onTeamNameChange={handleTeamNameChange} />
                 </div>)
             })}
             </div>

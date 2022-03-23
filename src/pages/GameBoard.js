@@ -6,9 +6,11 @@ import PickHeader from '../components/Picks/PickHeader'
 const GameBoard = ( ) => {
   const { id } = useParams()
   const [game, setGame] = useState()
+  const [losers, setLosers] = useState([])
   const [isNameEditMode, setNameEditMode] = useState(false)
   const [isRandomizeMode, setRandomizeMode] = useState(false)
-  const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
+  //const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
+  const madnessAPI = 'http://localhost:5000'
 
 
   useEffect(() => {
@@ -25,7 +27,23 @@ const GameBoard = ( ) => {
           setGame(data['game'])
         }
     }
+
+    const fetchLosers = async () => {
+      const resp = await fetch(`${madnessAPI}/teams`, {
+        method: 'GET'
+      })
+
+      const data = await resp.json()
+    
+      if(!resp.ok){
+        throw new Error(`GET request to /games/${id} failed with error: ${data.message}, ${data.details}`);
+      } else {
+        setLosers(data['losers'])
+      }
+    }
+
     fetchGame(id)
+    fetchLosers()
   }, [])
 
   // Update games
@@ -179,6 +197,7 @@ const GameBoard = ( ) => {
                   isRandomizeMode={isRandomizeMode}
                   onNameChange={handleNameChange}
                   onPickChange={handlePickChange}
+                  losers={losers}
                 />
             </div>
           ) : (

@@ -149,7 +149,8 @@ https://www.digitalocean.com/community/tutorials/how-to-call-web-apis-with-the-u
 const App = () => {
   const [showAddGame, setShowAddGame] = useState(false)
   const [games, setGames] = useState([  ])
-  const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
+  //const madnessAPI = 'https://taylorgaw.pythonanywhere.com'
+  const madnessAPI = 'http://localhost:5000'
 
   useEffect(() => {
     const getGames = async () => {
